@@ -2,7 +2,7 @@
   "list": [
     {
       "title": "Finish reading \"Captive Prince\"",
-      "completed": false,
+      "completed": true,
       "id": 2
     },
     {
@@ -14,6 +14,16 @@
       "title": "Finish watching \"Black Sails\"",
       "completed": true,
       "id": 4
+    },
+    {
+      "title": "Buy a new roomba",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "title": "Buy a new vacuum cleaner",
+      "completed": false,
+      "id": 6
     }
   ]
 }

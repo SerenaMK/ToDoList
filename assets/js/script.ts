@@ -1,6 +1,7 @@
 // VARIABLES
 var array: organizeList[] = [];
 var list = document.getElementById("list") as HTMLElement;
+var listCompleted = document.getElementById("completed") as HTMLElement;
 var input = document.getElementById("input") as HTMLInputElement;
 var error = document.getElementById("error") as HTMLElement;
 var btn = document.getElementById("button-addon1") as HTMLButtonElement;
@@ -51,21 +52,26 @@ function fetchData() {
             array.map((e) => {
                 let item = new List(e.id, e.title, e.completed);
                 let tr = document.createElement("tr");
-                list.appendChild(tr);
+
+                if(e.completed === true) {
+                    listCompleted.appendChild(tr);
+                    tr.classList.add("done");
+                } else {
+                    list.appendChild(tr);
+                }
 
                 tr.classList.add("align-middle", "tr");
 
                 tr.innerHTML += `
                     <th scope="row">${e.id}</th>
                     <td>${e.title}</td>
-                    <td>${e.completed}</td>
                     <td><button type="button" id="btnDelete" class="btn btn-light btn-outline-dark float-end" onclick="deleteData(${e.id})"><i class="bi bi-x-lg"></i></button></td>
                 `;
 
                 tr.addEventListener("click", function () {
                     // this.classList.add("done");
-                    
-                    if(e.completed === true){
+
+                    if (e.completed === true) {
                         edit(e.id, e.title, false);
                     } else {
                         edit(e.id, e.title, true);
@@ -75,16 +81,14 @@ function fetchData() {
         })
         .then(() => {
             // alternate li colors
-            const odds = document.querySelectorAll("tr:nth-of-type(odd)");
-            odds.forEach((riga) => {
-                riga.classList.add("table-info");
+            const odds = document.querySelectorAll("#list tr:nth-of-type(odd)");
+            odds.forEach((line) => {
+                line.classList.add("table-info");
             });
-            const evens = document.querySelectorAll("tr:nth-of-type(even)");
-            evens.forEach((riga) => {
-                riga.classList.add("table-primary");
+            const evens = document.querySelectorAll("#list tr:nth-of-type(even)");
+            evens.forEach((line) => {
+                line.classList.add("table-primary");
             });
-
-            // markDone();
         });
 }
 

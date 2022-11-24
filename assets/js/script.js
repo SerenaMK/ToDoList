@@ -37,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 // VARIABLES
 var array = [];
 var list = document.getElementById("list");
+var listCompleted = document.getElementById("completed");
 var input = document.getElementById("input");
 var error = document.getElementById("error");
 var btn = document.getElementById("button-addon1");
@@ -67,9 +68,15 @@ function fetchData() {
         array.map(function (e) {
             var item = new List(e.id, e.title, e.completed);
             var tr = document.createElement("tr");
-            list.appendChild(tr);
+            if (e.completed === true) {
+                listCompleted.appendChild(tr);
+                tr.classList.add("done");
+            }
+            else {
+                list.appendChild(tr);
+            }
             tr.classList.add("align-middle", "tr");
-            tr.innerHTML += "\n                    <th scope=\"row\">".concat(e.id, "</th>\n                    <td>").concat(e.title, "</td>\n                    <td>").concat(e.completed, "</td>\n                    <td><button type=\"button\" id=\"btnDelete\" class=\"btn btn-light btn-outline-dark float-end\" onclick=\"deleteData(").concat(e.id, ")\"><i class=\"bi bi-x-lg\"></i></button></td>\n                ");
+            tr.innerHTML += "\n                    <th scope=\"row\">".concat(e.id, "</th>\n                    <td>").concat(e.title, "</td>\n                    <td><button type=\"button\" id=\"btnDelete\" class=\"btn btn-light btn-outline-dark float-end\" onclick=\"deleteData(").concat(e.id, ")\"><i class=\"bi bi-x-lg\"></i></button></td>\n                ");
             tr.addEventListener("click", function () {
                 // this.classList.add("done");
                 if (e.completed === true) {
@@ -83,15 +90,14 @@ function fetchData() {
     })
         .then(function () {
         // alternate li colors
-        var odds = document.querySelectorAll("tr:nth-of-type(odd)");
-        odds.forEach(function (riga) {
-            riga.classList.add("table-info");
+        var odds = document.querySelectorAll("#list tr:nth-of-type(odd)");
+        odds.forEach(function (line) {
+            line.classList.add("table-info");
         });
-        var evens = document.querySelectorAll("tr:nth-of-type(even)");
-        evens.forEach(function (riga) {
-            riga.classList.add("table-primary");
+        var evens = document.querySelectorAll("#list tr:nth-of-type(even)");
+        evens.forEach(function (line) {
+            line.classList.add("table-primary");
         });
-        // markDone();
     });
 }
 // ADD user

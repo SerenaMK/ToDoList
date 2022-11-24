@@ -2,22 +2,14 @@ body {
     background-color: aliceblue;
 }
 
-h1 {
-    color: #6b6bff;
-}
-
-header p {
-    color: #6b6bff;
-}
-
-tbody tr:hover, .done {
-    opacity: 0.75;
+#list tr:hover, #completed .done {
+    opacity: 0.6;
     cursor: pointer;
     text-decoration: line-through;
     color: #666666;
 }
 
-.done:hover {
+#completed .done:hover {
     opacity: 1;
     cursor: auto;    
     text-decoration: none;    
