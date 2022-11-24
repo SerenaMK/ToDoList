@@ -2,12 +2,12 @@
   "list": [
     {
       "title": "Finish reading \"Captive Prince\"",
-      "completed": true,
+      "completed": false,
       "id": 2
     },
     {
       "title": "Finish reading \"Chainsaw Man\"",
-      "completed": false,
+      "completed": true,
       "id": 3
     },
     {
