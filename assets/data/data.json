@@ -1,0 +1,19 @@
+{
+  "list": [
+    {
+      "title": "Finish reading \"Captive Prince\"",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "title": "Finish reading \"Chainsaw Man\"",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "title": "Finish watching \"Black Sails\"",
+      "completed": true,
+      "id": 4
+    }
+  ]
+}

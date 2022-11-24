@@ -1,0 +1,29 @@
+body {
+    background-color: aliceblue;
+}
+
+h1 {
+    color: #6b6bff;
+}
+
+header p {
+    color: #6b6bff;
+}
+
+tbody tr:hover, .done {
+    opacity: 0.75;
+    cursor: pointer;
+    text-decoration: line-through;
+    color: #666666;
+}
+
+.done:hover {
+    opacity: 1;
+    cursor: auto;    
+    text-decoration: none;    
+    color: null;
+}
+
+#btnDelete {
+    z-index: 100;
+}
